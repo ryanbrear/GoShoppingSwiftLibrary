@@ -13,7 +13,7 @@ public struct GoShoppingDataManager {
     
     public init() {}
     
-    // MARK: Public access data methods
+    // MARK: Public access data methods.
     
     /**
      Call this method to update the cache of cities, malls, and shops.
