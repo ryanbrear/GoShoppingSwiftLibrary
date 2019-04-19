@@ -8,12 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		B628E9CA22674EAD0070E044 /* GoShoppingSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = B628E9C822674EAD0070E044 /* GoShoppingSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B628EA05226764B90070E044 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B628EA04226764B90070E044 /* APIManager.swift */; };
+		B628EA09226766C80070E044 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = B628EA08226766C80070E044 /* Enums.swift */; };
+		B628EA0B2267703F0070E044 /* GoShoppingDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B628EA0A2267703F0070E044 /* GoShoppingDataManager.swift */; };
+		B628EA0F2268613A0070E044 /* DataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B628EA0E2268613A0070E044 /* DataTypes.swift */; };
+		B628EA11226869180070E044 /* DataCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = B628EA10226869180070E044 /* DataCache.swift */; };
+		B628EA1322686A330070E044 /* APIProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B628EA1222686A330070E044 /* APIProperties.swift */; };
+		B628EA1D226A147B0070E044 /* PrivateDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B628EA1C226A147B0070E044 /* PrivateDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B628E9C522674EAD0070E044 /* GoShoppingSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GoShoppingSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B628E9C822674EAD0070E044 /* GoShoppingSwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoShoppingSwift.h; sourceTree = "<group>"; };
 		B628E9C922674EAD0070E044 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B628EA04226764B90070E044 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		B628EA08226766C80070E044 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		B628EA0A2267703F0070E044 /* GoShoppingDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoShoppingDataManager.swift; sourceTree = "<group>"; };
+		B628EA0E2268613A0070E044 /* DataTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTypes.swift; sourceTree = "<group>"; };
+		B628EA10226869180070E044 /* DataCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCache.swift; sourceTree = "<group>"; };
+		B628EA1222686A330070E044 /* APIProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProperties.swift; sourceTree = "<group>"; };
+		B628EA1C226A147B0070E044 /* PrivateDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,10 +60,33 @@
 		B628E9C722674EAD0070E044 /* GoShoppingSwift */ = {
 			isa = PBXGroup;
 			children = (
+				B628EA03226764670070E044 /* Data */,
+				B628EA02226764530070E044 /* Network */,
 				B628E9C822674EAD0070E044 /* GoShoppingSwift.h */,
 				B628E9C922674EAD0070E044 /* Info.plist */,
 			);
 			path = GoShoppingSwift;
+			sourceTree = "<group>";
+		};
+		B628EA02226764530070E044 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				B628EA04226764B90070E044 /* APIManager.swift */,
+				B628EA08226766C80070E044 /* Enums.swift */,
+				B628EA1222686A330070E044 /* APIProperties.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		B628EA03226764670070E044 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				B628EA0A2267703F0070E044 /* GoShoppingDataManager.swift */,
+				B628EA1C226A147B0070E044 /* PrivateDataManager.swift */,
+				B628EA0E2268613A0070E044 /* DataTypes.swift */,
+				B628EA10226869180070E044 /* DataCache.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -95,6 +132,7 @@
 				TargetAttributes = {
 					B628E9C422674EAD0070E044 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -130,6 +168,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B628EA05226764B90070E044 /* APIManager.swift in Sources */,
+				B628EA11226869180070E044 /* DataCache.swift in Sources */,
+				B628EA0F2268613A0070E044 /* DataTypes.swift in Sources */,
+				B628EA1322686A330070E044 /* APIProperties.swift in Sources */,
+				B628EA09226766C80070E044 /* Enums.swift in Sources */,
+				B628EA1D226A147B0070E044 /* PrivateDataManager.swift in Sources */,
+				B628EA0B2267703F0070E044 /* GoShoppingDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +306,7 @@
 		B628E9CE22674EAD0070E044 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -278,6 +324,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = indiegro.GoShoppingSwift;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -286,6 +333,7 @@
 		B628E9CF22674EAD0070E044 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
