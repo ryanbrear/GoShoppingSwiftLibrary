@@ -11,6 +11,7 @@ import Foundation
 /// Contains all the public methods that give access to the city, mall and shop data.
 public struct GoShoppingDataManager {
     
+    /// represents three possible results of trying to update the data.
     public enum UpdateDataResult {
         case success
         case error
