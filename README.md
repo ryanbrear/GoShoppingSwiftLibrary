@@ -35,8 +35,8 @@ GoShoppingDataManager().getLatestData { success in
 }
 ```
 
-- GoShoppingSwift makes three types available to you: City, Mall, Shop
-- Request a list of all cities. Returns an array of type City:
+- GoShoppingSwift makes three types available to you: `City`, `Mall`, `Shop`
+- Request a list of all cities. Returns an array of type `City`:
 ```Swift
 let allCities = GoShoppingDataManager().allCities()
 ```
