@@ -1,5 +1,5 @@
 # GoShoppingSwiftLibrary
-An iOS library written as part of the interview process with Entersekt.  The library provides API's to easily pull in city, mall, and shop info into an ios app. 
+An iOS library written in Swift 4.2 as part of the interview process with Entersekt.  The library provides API's to easily pull in city, mall, and shop info into an ios app. 
 
 ![Simulator Screen Shot - iPhone XR - 2019-04-20 at 07 44 43](https://user-images.githubusercontent.com/21098812/56453281-7300cd80-6340-11e9-91c3-2943b21b02e0.png)
 ![Simulator Screen Shot - iPhone XR - 2019-04-20 at 07 44 47](https://user-images.githubusercontent.com/21098812/56453282-73996400-6340-11e9-9180-9fcd7ab4ac4a.png)
@@ -32,6 +32,7 @@ GoShoppingDataManager().getLatestData { success in
 }
 ```
 
+- GoShoppingSwift makes three types available to you: City, Mall, Shop
 - Request a list of all cities. Returns an array of type City:
 ```Swift
 let allCities = GoShoppingDataManager().allCities()
@@ -40,14 +41,14 @@ let allCities = GoShoppingDataManager().allCities()
 - Request a particular city by pasing in the id of that city. Returns an object of type optional City:
 ```Swift
 let city = GoShoppingDataManager().cityWithId(10)
+let cityName = city.name
+let cityId = city.id
 ```
 
 - Request all malls in a city:
 ```Swift
-// get a city object
 let dataManager = GoShoppingDataManager()
 let capeTown = dataManager.cityWithId(10)
-// pass in the city object to this method
 let allMallsInCity = dataManager.allMallsIn(capeTown)
 ```
 
@@ -60,7 +61,19 @@ let mall = GoShoppingDataManager().mallWithId(20)
 ```Swift
 let dataManager = GoShoppingDataManager()
 let mall = dataManager.getMallWithId(20)
-let allShopsIn(mall)
+let allShopsInMall = dataManager.allShopsIn(mall)
+```
+
+- Request a particular shop in a mall. Returns nil if id not valid, or an object of type optional Shop
+```Swift
+let shop = GoShoppingDataManager().shopWithId(2)
+```
+
+- Request all the shops in a city
+```Swift
+let dataManager = GoShoppingDataManager()
+let city = dataManager.getCityWithId(10)
+let allShopsInCity = allShopsIn(city)
 ```
 
 ## Author
