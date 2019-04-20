@@ -16,8 +16,8 @@ An iOS library written in Swift 4.2 as part of the interview process with Enters
 - Download the repo and add it to your project as an embedded binary.
 
 # Demo
-- Here is a link to a demo app utilising the library
-
+- Here is a link to a demo app utilising the library:
+https://github.com/ryanbrear/GoShopping_App
 
 # Usage
 - To use GoShoppingSwift in a file, begin by importing it.
@@ -53,10 +53,14 @@ let cityName = city.name
 
 - Request all malls in a city:
 ```Swift
+// 1st approach
 let dataManager = GoShoppingDataManager()
 let capeTown = dataManager.cityWithId(10)
-let allMallsInCity = dataManager.allMallsIn(capeTown)
+var allMallsInCity = dataManager.allMallsIn(capeTown)
+// 2nd approach
+allMallsInCity = capeTown.allMallsInCity()
 ```
+
 
 
 - Request a particular mall in a city:
@@ -67,9 +71,12 @@ let mall = GoShoppingDataManager().mallWithId(20)
 
 - Request a list of all shops in a mall:
 ```Swift
+// 1st approach
 let dataManager = GoShoppingDataManager()
 let mall = dataManager.getMallWithId(20)
-let allShopsInMall = dataManager.allShopsIn(mall)
+var allShopsInMall = dataManager.allShopsIn(mall)
+// 2nd approach
+allShopsInMall = mall.allShopsInMall()
 ```
 
 
@@ -81,9 +88,12 @@ let shop = GoShoppingDataManager().shopWithId(2)
 
 - Request all the shops in a city:
 ```Swift
+// 1st approach
 let dataManager = GoShoppingDataManager()
 let city = dataManager.getCityWithId(10)
-let allShopsInCity = allShopsIn(city)
+var allShopsInCity = allShopsIn(city)
+// 2nd approach
+allShopsInCity = city.allShopsInCity()
 ```
 
 # Author
