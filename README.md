@@ -12,14 +12,14 @@ An iOS library written in Swift 4.2 as part of the interview process with Enters
 - iOS 9.0+
 - XCode 9.0+
 
-## Installation
+# Installation
 - Download the repo and add it to your project as an embedded binary.
 
-## Demo
+# Demo
 - Here is a link to a demo app utilising the library
 
 
-## Usage
+# Usage
 - To use GoShoppingSwift in a file, begin by importing it.
 ```Swift
 import GoShoppingSwift
@@ -86,5 +86,5 @@ let city = dataManager.getCityWithId(10)
 let allShopsInCity = allShopsIn(city)
 ```
 
-## Author
+# Author
 Ryan Brear, rpbrear@gmail.com
