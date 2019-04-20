@@ -26,15 +26,27 @@ import GoShoppingSwift
 ```
 
 
-- To fetch the latest shopping info:
+- Utilising the shopping data involves two steps: 1) fetching the latest data from the server, and 2) using the methods outlined below to access subsets of the returned data. While GoShoppingSwift does save the data for offline use, to ensure your app has the latest info you should call the below method when the app comes in the foreground.
+- To fetch the latest data from the server:
 ```Swift
-GoShoppingDataManager().getLatestData { success in
-  if success {
+GoShoppingDataManager().getLatestData { result in
+  switch result {
+  case .success
     // use API methods to access updated info here 
-  } else {
+  case .error
     // handle failure here
+  case .noInternet
+    // handle no internet here
+  }
 }
 ```
+
+- If you are offline you can call this method to loaded the last saved data.
+```Swift
+GoShoppingDataManager().getLastSavedDataForOfflineUse()
+```
+
+- Once you have fetched the latest data you can then call the methods below to access subsets of that data.
 
 
 - GoShoppingSwift makes three types available to you: `City`, `Mall`, `Shop`
