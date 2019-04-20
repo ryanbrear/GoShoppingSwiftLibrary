@@ -1,4 +1,4 @@
-# GoShoppingSwiftLibrary
+# GoShoppingSwift
 An iOS library written in Swift 4.2 as part of the interview process with Entersekt.  The library provides API's to easily pull in city, mall, and shop info into an iOS app. 
 
 ![Simulator Screen Shot - iPhone XR - 2019-04-20 at 07 44 43](https://user-images.githubusercontent.com/21098812/56453281-7300cd80-6340-11e9-91c3-2943b21b02e0.png)
