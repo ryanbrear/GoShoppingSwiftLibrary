@@ -11,33 +11,56 @@ import Foundation
 /// Contains all the public methods that give access to the city, mall and shop data.
 public struct GoShoppingDataManager {
     
+    public enum UpdateDataResult {
+        case success
+        case error
+        case noInternet
+    }
+    
     public init() {}
     
     // MARK: Public access data methods
     
-    /**
-     Call this method to update the cache of cities, malls, and shops.
-     - parameter success: a callback that takes a Bool.
-     */
-    public func getLatestData(success:@escaping (Bool)->Void) {
+     /// Call this method to update the cache of cities, malls, and shops.
+     /// - parameter success: a callback that takes a Bool.
+    public func getLatestData(updateDataResult:@escaping (UpdateDataResult)->Void) {
         let endPoint = APIProperties().endPoint
         APIManager().apiGet(endPoint, callBackFunc: { result in
             switch result {
             case .success(let data):
-                if let data = data {
-                    PrivateDataManager().updateDataCache(from: data)
-                    success(true)
-                } else {
-                    success(false)
+                do {
+                    // serialise the data and update the cache
+                    let serializedData = try JSONSerialization.jsonObject(with: data, options: []) as! [String:Any]
+                    let dataManager = InternalDataManager()
+                    dataManager.updateDataCache(from: serializedData)
+                    // persist a copy of the data for offline access
+                    dataManager.saveDataForOfflineUse(data: data)
+                    updateDataResult(.success)
+                } catch  {
+                    updateDataResult(.error)
                 }
+            case .noInternetConnection:
+                updateDataResult(.noInternet)
             default:
-                success(false)
+                updateDataResult(.error)
             }
         })
     }
     
     
-    /// request a list of cities
+    /// Call this method when you are offline and want to update the data cache with the last saved info.
+    /// - returns: True if successful, false if there was no previously saved data.
+    public func getLastSavedDataForOfflineUse() -> Bool {
+        let dataManager = InternalDataManager()
+        if let savedData = dataManager.retrieveSavedData() {
+            dataManager.updateDataCache(from: savedData)
+            return true
+        }
+        return false
+    }
+    
+    
+    /// Request a list of cities
     /// - returns: an array of City
     /// - note: if there was an error updating the data cache this array can be empty.
     public func allCities() -> [City] {
@@ -45,7 +68,7 @@ public struct GoShoppingDataManager {
     }
     
     
-    /// request a particular city
+    /// Request a particular city
     /// - parameter id: the id of the city you need
     /// - returns: nil if id not valid, or an object of type optional City
     public func cityWithId(_ id: Int) -> City? {
@@ -59,7 +82,7 @@ public struct GoShoppingDataManager {
     }
     
     
-    /// request all malls in a city
+    /// Request all malls in a city
     /// - parameter city: an object of type City
     /// - returns: all malls in a city.
     /// - note: can be an empty array if there was an error fetching data.
@@ -75,7 +98,7 @@ public struct GoShoppingDataManager {
     }
     
     
-    /// request a particular mall in a city
+    /// Request a particular mall in a city
     /// - parameter id: the id of the Mall you need.
     /// - returns: nil if id not valid, or an object of type optional Mall
     public func mallWithId(_ id: Int) -> Mall? {
@@ -89,7 +112,7 @@ public struct GoShoppingDataManager {
     }
     
     
-    /// request a list of shops in a mall
+    /// Request a list of shops in a mall
     /// - parameter mall: an object of type Mall
     /// - returns: all shops in a mall.
     /// - note: can be an empty array if there was an error fetching data.
@@ -105,7 +128,7 @@ public struct GoShoppingDataManager {
     }
     
     
-    /// request a particular shop in a mall
+    /// Request a particular shop in a mall
     /// - parameter id: the id of the Shop you need.
     /// - returns: nil if id not valid, or an object of type optional Shop
     public func shopWithId(_ id: Int) -> Shop? {
@@ -119,7 +142,7 @@ public struct GoShoppingDataManager {
     }
     
     
-    /// request all the shops in a city
+    /// Request all the shops in a city
     /// - parameter city: an object of type City
     /// - returns: all shops in a city.
     /// - note: can be an empty array if there was an error fetching data.

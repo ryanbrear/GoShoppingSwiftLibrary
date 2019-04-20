@@ -14,6 +14,6 @@ internal enum ResultOfApiCall {
     case noInternetConnection
     case noDataReturned
     case someErrorOccurred
-    case success([String:Any]?)
+    case success(Data)
 }
 
