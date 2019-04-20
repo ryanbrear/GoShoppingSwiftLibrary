@@ -91,7 +91,7 @@ let shop = GoShoppingDataManager().shopWithId(2)
 // 1st approach
 let dataManager = GoShoppingDataManager()
 let city = dataManager.getCityWithId(10)
-var allShopsInCity = allShopsIn(city)
+var allShopsInCity = dataManager.allShopsIn(city)
 // 2nd approach
 allShopsInCity = city.allShopsInCity()
 ```
