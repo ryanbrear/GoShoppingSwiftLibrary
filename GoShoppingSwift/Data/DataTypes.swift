@@ -12,12 +12,20 @@ import Foundation
 public struct City {
     public var id: Int
     public var name: String
-    public var malls: [Int]
+    internal var malls: [Int]
     
     init(id: Int, name: String, malls: [Int]) {
         self.id = id
         self.name = name
         self.malls = malls
+    }
+    
+    public func allMallsInCity() -> [Mall] {
+        return GoShoppingDataManager().allMallsIn(self)
+    }
+    
+    public func allShopsInCity() -> [Shop] {
+        return GoShoppingDataManager().allShopsIn(self)
     }
 }
 
@@ -33,6 +41,10 @@ public struct Mall {
         self.name = name
         self.cityId = cityId
         self.shops = shops
+    }
+    
+    public func allShopsInMall() -> [Shop] {
+        return GoShoppingDataManager().allShopsIn(self)
     }
     
 }

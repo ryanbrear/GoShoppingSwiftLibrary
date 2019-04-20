@@ -48,7 +48,7 @@ public struct GoShoppingDataManager {
     /// request a particular city
     /// - parameter id: the id of the city you need
     /// - returns: nil if id not valid, or an object of type optional City
-    public func cityWith(_ id: Int) -> City? {
+    public func cityWithId(_ id: Int) -> City? {
         var cityToReturn: City?
         for city in DataCache.allCities {
             if city.id == id {
@@ -67,7 +67,7 @@ public struct GoShoppingDataManager {
         let mallIds = city.malls
         var mallsInCity: [Mall] = []
         for id in mallIds {
-            if let mall = mallWith(id) {
+            if let mall = mallWithId(id) {
                 mallsInCity.append(mall)
             }
         }
@@ -78,7 +78,7 @@ public struct GoShoppingDataManager {
     /// request a particular mall in a city
     /// - parameter id: the id of the Mall you need.
     /// - returns: nil if id not valid, or an object of type optional Mall
-    public func mallWith(_ id: Int) -> Mall? {
+    public func mallWithId(_ id: Int) -> Mall? {
         var mallToReturn: Mall?
         for mall in DataCache.allMalls {
             if mall.id == id {
@@ -97,7 +97,7 @@ public struct GoShoppingDataManager {
         let shopIds = mall.shops
         var shopsInMall: [Shop] = []
         for id in shopIds {
-            if let shop = shopWith(id) {
+            if let shop = shopWithId(id) {
                 shopsInMall.append(shop)
             }
         }
@@ -108,7 +108,7 @@ public struct GoShoppingDataManager {
     /// request a particular shop in a mall
     /// - parameter id: the id of the Shop you need.
     /// - returns: nil if id not valid, or an object of type optional Shop
-    public func shopWith(_ id: Int) -> Shop? {
+    public func shopWithId(_ id: Int) -> Shop? {
         var shopToReturn: Shop?
         for shop in DataCache.allShops {
             if shop.id == id {
