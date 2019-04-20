@@ -48,24 +48,19 @@ internal struct APIManager {
             if let error = error as NSError? {
                 if error.code == -1009 {
                     callBackFunc(.noInternetConnection)
+                    return
                 }
             }
             
             // check we got back some data
-            guard data != nil else {
+            guard let data = data else {
                 callBackFunc(.noDataReturned)
                 return
             }
             
             // check if success or error in response
             if let response = response as? HTTPURLResponse , 200...299 ~= response.statusCode {
-                // serialize the data
-                do {
-                    let serializedData = try JSONSerialization.jsonObject(with: data!, options: []) as! [String:Any]
-                    callBackFunc(.success(serializedData))
-                } catch  {
-                    callBackFunc(.someErrorOccurred)
-                }
+                callBackFunc(.success(data))
             } else {
                 callBackFunc(.someErrorOccurred)
             }

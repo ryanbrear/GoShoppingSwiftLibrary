@@ -9,7 +9,7 @@
 import Foundation
 
 /// This struct handles the creation of city, mall, and shop types, and also handles the updating of the data cache
-internal struct PrivateDataManager {
+internal struct InternalDataManager {
     
     // MARK: Data management methods
     
@@ -89,4 +89,27 @@ internal struct PrivateDataManager {
         let name = shopData["name"] as! String
         return Shop(id: id, name: name, mallId: mallId, cityId: cityId)
     }
+    
+    
+    /// Method persists JSON data for offline use.
+    internal func saveDataForOfflineUse(data: Data) {
+        UserDefaults.standard.set(data, forKey: "jsonData")
+    }
+    
+    
+    /// Method retries saved JSON data from UserDefaults, and serialises it at the same time.
+    /// - returns: optional dictionary
+    internal func retrieveSavedData() -> [String: Any]? {
+        if let savedData = UserDefaults.standard.object(forKey: "jsonData") as? Data {
+            do {
+                // serialise the data
+                let serializedData = try JSONSerialization.jsonObject(with: savedData, options: []) as! [String:Any]
+                return serializedData
+            } catch  {
+                return nil
+            }
+        }
+        return nil
+    }
+
 }

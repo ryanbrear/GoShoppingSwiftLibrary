@@ -14,7 +14,7 @@
 		B628EA0F2268613A0070E044 /* DataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B628EA0E2268613A0070E044 /* DataTypes.swift */; };
 		B628EA11226869180070E044 /* DataCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = B628EA10226869180070E044 /* DataCache.swift */; };
 		B628EA1322686A330070E044 /* APIProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B628EA1222686A330070E044 /* APIProperties.swift */; };
-		B628EA1D226A147B0070E044 /* PrivateDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B628EA1C226A147B0070E044 /* PrivateDataManager.swift */; };
+		B628EA1D226A147B0070E044 /* InternalDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B628EA1C226A147B0070E044 /* InternalDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +27,7 @@
 		B628EA0E2268613A0070E044 /* DataTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTypes.swift; sourceTree = "<group>"; };
 		B628EA10226869180070E044 /* DataCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCache.swift; sourceTree = "<group>"; };
 		B628EA1222686A330070E044 /* APIProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProperties.swift; sourceTree = "<group>"; };
-		B628EA1C226A147B0070E044 /* PrivateDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateDataManager.swift; sourceTree = "<group>"; };
+		B628EA1C226A147B0070E044 /* InternalDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				B628EA0A2267703F0070E044 /* GoShoppingDataManager.swift */,
-				B628EA1C226A147B0070E044 /* PrivateDataManager.swift */,
+				B628EA1C226A147B0070E044 /* InternalDataManager.swift */,
 				B628EA0E2268613A0070E044 /* DataTypes.swift */,
 				B628EA10226869180070E044 /* DataCache.swift */,
 			);
@@ -173,7 +173,7 @@
 				B628EA0F2268613A0070E044 /* DataTypes.swift in Sources */,
 				B628EA1322686A330070E044 /* APIProperties.swift in Sources */,
 				B628EA09226766C80070E044 /* Enums.swift in Sources */,
-				B628EA1D226A147B0070E044 /* PrivateDataManager.swift in Sources */,
+				B628EA1D226A147B0070E044 /* InternalDataManager.swift in Sources */,
 				B628EA0B2267703F0070E044 /* GoShoppingDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
