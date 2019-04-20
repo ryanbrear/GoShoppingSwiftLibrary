@@ -17,7 +17,7 @@ An iOS library written in Swift 4.2 as part of the interview process with Enters
 - Download the repo and add it to your project as an embedded binary.
 
 ## Usage
-- To use GoShoppingSwift in a file, begin by importing it
+- To use GoShoppingSwift in a file, begin by importing it.
 ```Swift
 import GoShoppingSwift
 ```
@@ -38,37 +38,37 @@ GoShoppingDataManager().getLatestData { success in
 let allCities = GoShoppingDataManager().allCities()
 ```
 
-- Request a particular city by pasing in the id of that city.
+- Request a particular city by pasing in the id of that city:
 ```Swift
 let city = GoShoppingDataManager().cityWithId(10)
 let cityName = city.name
 ```
 
-- Request all malls in a city.:
+- Request all malls in a city:
 ```Swift
 let dataManager = GoShoppingDataManager()
 let capeTown = dataManager.cityWithId(10)
 let allMallsInCity = dataManager.allMallsIn(capeTown)
 ```
 
-- Request a particular mall in a city.
+- Request a particular mall in a city:
 ```Swift
 let mall = GoShoppingDataManager().mallWithId(20)
 ```
 
-- Request a list of all shops in a mall.
+- Request a list of all shops in a mall:
 ```Swift
 let dataManager = GoShoppingDataManager()
 let mall = dataManager.getMallWithId(20)
 let allShopsInMall = dataManager.allShopsIn(mall)
 ```
 
-- Request a particular shop in a mall.
+- Request a particular shop in a mall:
 ```Swift
 let shop = GoShoppingDataManager().shopWithId(2)
 ```
 
-- Request all the shops in a city
+- Request all the shops in a city:
 ```Swift
 let dataManager = GoShoppingDataManager()
 let city = dataManager.getCityWithId(10)
